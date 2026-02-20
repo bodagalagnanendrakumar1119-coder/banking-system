@@ -1,3 +1,4 @@
+Content is user-generated and unverified.
 * {
     margin: 0;
     padding: 0;
@@ -12,13 +13,14 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: rgba(0, 51, 102, 0.95);
+    backdrop-filter: blur(10px);
     padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
 .nav-container {
@@ -53,9 +55,10 @@ body {
     transform: translateY(-2px);
 }
 
-/* Hero Section */
+/* Hero Section with Banking Background */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)),
+                url('https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=1920') center/cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -63,12 +66,29 @@ body {
     text-align: center;
     color: white;
     padding: 0 2rem;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.9) 0%, rgba(0, 102, 153, 0.8) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero-content p {
@@ -101,13 +121,13 @@ body {
 }
 
 .btn-primary {
-    background: white;
-    color: #667eea;
+    background: #ffd700;
+    color: #003366;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
 }
 
 .btn-secondary {
@@ -118,21 +138,22 @@ body {
 
 .btn-secondary:hover {
     background: white;
-    color: #667eea;
+    color: #003366;
     transform: translateY(-3px);
 }
 
-/* Features Section */
+/* Features Section with Background */
 .features {
     padding: 5rem 2rem;
-    background: #f8f9fa;
+    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920') center/cover fixed;
 }
 
 .features h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #667eea;
+    color: #003366;
 }
 
 .feature-grid {
@@ -144,17 +165,19 @@ body {
 }
 
 .feature-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
     transition: all 0.3s;
+    border: 2px solid rgba(0, 51, 102, 0.1);
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 40px rgba(0, 51, 102, 0.3);
+    border-color: #ffd700;
 }
 
 .feature-card .icon {
@@ -163,21 +186,23 @@ body {
 }
 
 .feature-card h3 {
-    color: #667eea;
+    color: #003366;
     margin-bottom: 1rem;
 }
 
-/* Services Section */
+/* Services Section with Banking Image */
 .services {
     padding: 5rem 2rem;
-    background: white;
+    background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)),
+                url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1920') center/cover fixed;
+    color: white;
 }
 
 .services h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #667eea;
+    color: white;
 }
 
 .services-grid {
@@ -189,17 +214,21 @@ body {
 }
 
 .service-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
     color: white;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
     transition: all 0.3s;
+    border: 2px solid rgba(255, 215, 0, 0.3);
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
 }
 
 .service-card h3 {
@@ -226,14 +255,15 @@ body {
 /* Contact Section */
 .contact {
     padding: 5rem 2rem;
-    background: #f8f9fa;
+    background: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)),
+                url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920') center/cover fixed;
 }
 
 .contact h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #667eea;
+    color: #003366;
 }
 
 .contact-container {
@@ -246,10 +276,13 @@ body {
 
 .contact-info {
     padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .contact-info h3 {
-    color: #667eea;
+    color: #003366;
     margin-bottom: 1.5rem;
 }
 
@@ -259,10 +292,10 @@ body {
 }
 
 .contact-form {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .contact-form input,
@@ -279,12 +312,12 @@ body {
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #003366;
 }
 
 /* Footer */
 .footer {
-    background: #333;
+    background: #003366;
     color: white;
     text-align: center;
     padding: 2rem;
@@ -299,7 +332,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.8);
     animation: fadeIn 0.3s;
 }
 
@@ -346,11 +379,11 @@ body {
 }
 
 .close:hover {
-    color: #667eea;
+    color: #003366;
 }
 
 .modal-content h2 {
-    color: #667eea;
+    color: #003366;
     margin-bottom: 1.5rem;
 }
 
@@ -376,7 +409,7 @@ body {
 
 .form-group input:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #003366;
 }
 
 /* Dashboard Styles */
@@ -384,7 +417,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 1.5rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #003366 0%, #006699 100%);
     border-radius: 10px;
     color: white;
     margin-bottom: 2rem;
@@ -393,6 +426,7 @@ body {
 .balance {
     font-size: 2rem;
     font-weight: bold;
+    color: #ffd700;
 }
 
 .dashboard-actions {
@@ -405,8 +439,8 @@ body {
 .action-btn {
     padding: 1rem;
     background: white;
-    border: 2px solid #667eea;
-    color: #667eea;
+    border: 2px solid #003366;
+    color: #003366;
     border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
@@ -415,9 +449,10 @@ body {
 }
 
 .action-btn:hover {
-    background: #667eea;
+    background: #003366;
     color: white;
     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
 }
 
 .transaction-form {
@@ -428,7 +463,7 @@ body {
 }
 
 .transaction-form h3 {
-    color: #667eea;
+    color: #003366;
     margin-bottom: 1rem;
 }
 
@@ -452,7 +487,7 @@ body {
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 8px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #003366;
     display: flex;
     justify-content: space-between;
     align-items: center;
