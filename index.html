@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">🏦 SecureBank</h1>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to SecureBank</h1>
+            <p>Your Trusted Banking Partner</p>
+            <button class="btn-primary" onclick="openLoginModal()">Login</button>
+            <button class="btn-secondary" onclick="openRegisterModal()">Register</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Our Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">💰</div>
+                <h3>Account Management</h3>
+                <p>Create and manage multiple accounts easily</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">💸</div>
+                <h3>Fund Transfer</h3>
+                <p>Transfer money instantly and securely</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📊</div>
+                <h3>Transaction History</h3>
+                <p>View all your transactions in one place</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔒</div>
+                <h3>Secure Banking</h3>
+                <p>Bank-level security for all transactions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Savings Account</h3>
+                <p>Earn competitive interest rates on your savings</p>
+                <ul>
+                    <li>Zero balance account</li>
+                    <li>4% annual interest</li>
+                    <li>Free debit card</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Current Account</h3>
+                <p>Perfect for your business needs</p>
+                <ul>
+                    <li>Unlimited transactions</li>
+                    <li>Overdraft facility</li>
+                    <li>Online banking</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Fixed Deposit</h3>
+                <p>Secure your future with fixed deposits</p>
+                <ul>
+                    <li>High interest rates</li>
+                    <li>Flexible tenure</li>
+                    <li>Loan against FD</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>📞 Phone: +91 1800-123-4567</p>
+                <p>📧 Email: support@securebank.com</p>
+                <p>📍 Address: 123 Banking Street, Finance City</p>
+            </div>
+            <form class="contact-form" onsubmit="handleContact(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 SecureBank. All rights reserved.</p>
+        <p>Banking Management System - College Mini Project</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Account Number</label>
+                    <input type="text" id="loginAccount" placeholder="Enter account number" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegisterModal()">&times;</span>
+            <h2>Create New Account</h2>
+            <form onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="regName" placeholder="Enter full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="regPhone" placeholder="Enter phone number" required>
+                </div>
+                <div class="form-group">
+                    <label>Initial Deposit</label>
+                    <input type="number" id="regDeposit" placeholder="Minimum ₹1000" min="1000" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="regPassword" placeholder="Create password" required>
+                </div>
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Modal -->
+    <div id="dashboardModal" class="modal">
+        <div class="modal-content dashboard">
+            <span class="close" onclick="closeDashboard()">&times;</span>
+            <h2>Account Dashboard</h2>
+            <div class="dashboard-header">
+                <div class="account-info">
+                    <h3 id="dashName">Welcome, User!</h3>
+                    <p>Account No: <span id="dashAccount"></span></p>
+                </div>
+                <div class="balance-info">
+                    <h3>Current Balance</h3>
+                    <p class="balance" id="dashBalance">₹0.00</p>
+                </div>
+            </div>
+
+            <div class="dashboard-actions">
+                <button class="action-btn" onclick="showDeposit()">💰 Deposit</button>
+                <button class="action-btn" onclick="showWithdraw()">💸 Withdraw</button>
+                <button class="action-btn" onclick="showTransfer()">🔄 Transfer</button>
+                <button class="action-btn" onclick="showHistory()">📊 History</button>
+            </div>
+
+            <!-- Deposit Form -->
+            <div id="depositForm" class="transaction-form" style="display:none;">
+                <h3>Deposit Money</h3>
+                <form onsubmit="handleDeposit(event)">
+                    <input type="number" id="depositAmount" placeholder="Enter amount" min="1" required>
+                    <button type="submit" class="btn-primary">Deposit</button>
+                </form>
+            </div>
+
+            <!-- Withdraw Form -->
+            <div id="withdrawForm" class="transaction-form" style="display:none;">
+                <h3>Withdraw Money</h3>
+                <form onsubmit="handleWithdraw(event)">
+                    <input type="number" id="withdrawAmount" placeholder="Enter amount" min="1" required>
+                    <button type="submit" class="btn-primary">Withdraw</button>
+                </form>
+            </div>
+
+            <!-- Transfer Form -->
+            <div id="transferForm" class="transaction-form" style="display:none;">
+                <h3>Transfer Money</h3>
+                <form onsubmit="handleTransfer(event)">
+                    <input type="text" id="transferAccount" placeholder="Recipient account number" required>
+                    <input type="number" id="transferAmount" placeholder="Enter amount" min="1" required>
+                    <button type="submit" class="btn-primary">Transfer</button>
+                </form>
+            </div>
+
+            <!-- Transaction History -->
+            <div id="historyView" class="transaction-history" style="display:none;">
+                <h3>Transaction History</h3>
+                <div id="transactionList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
